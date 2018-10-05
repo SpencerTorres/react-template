@@ -7,7 +7,7 @@ const title = 'App';
 
 ReactDOM.render(
 	<h1>{title}</h1>,
-	document.getElementById('app')
+	document.getElementById('root')
 );
 
 module.hot.accept();
