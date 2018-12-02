@@ -4,30 +4,40 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: './src/index.js',
 	module: {
-		rules: [
-			{
-				test: /\.(js|jsx)$/,
-				exclude: /node_modules/,
-				use: ['babel-loader']
-			},
-			{
-				test: /\.(css|scss|sass)$/,
-				loaders: ['style-loader', 'css-loader', 'sass-loader']
-			},
-			{
-				test: /\.svg$/,
-				use: [
-					{
-						loader: 'babel-loader'
-					},
-					{
-						loader: 'react-svg-loader',
-						options: {
-							jsx: true
-						}
+		rules: [{
+			test: /\.(js|jsx)$/,
+			exclude: /node_modules/,
+			use: ['babel-loader']
+		},
+		{
+			test: /\.(css|scss|sass)$/,
+			use: [
+				'style-loader',
+				{
+					loader: 'css-loader',
+					options: {
+						sourceMap: true,
+						modules: true,
+						camelCase: true,
+						localIdentName: '[local]_[hash:base64:5]'
 					}
-				]
+				},
+				'sass-loader'
+			]
+		},
+		{
+			test: /\.svg$/,
+			use: [{
+				loader: 'babel-loader'
+			},
+			{
+				loader: 'react-svg-loader',
+				options: {
+					jsx: true
+				}
 			}
+			]
+		}
 		]
 	},
 	resolve: {

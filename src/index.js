@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 
 import './styles/index.scss';
 
-const title = 'App';
+import Button from './components/Button';
 
 ReactDOM.render(
-	<h1>{title}</h1>,
+	<Button />,
 	document.getElementById('root')
 );
 
