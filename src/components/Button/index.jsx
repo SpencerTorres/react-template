@@ -18,7 +18,7 @@ export default class Button extends Component {
 		const { count } = this.state;
 
 		return (
-			<div className={Style.Button} onClick={this.onClick}>
+			<div className={Style.Button} onMouseDown={this.onClick}>
 				Click Count: {count}
 			</div>
 		);
